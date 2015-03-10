@@ -1,0 +1,84 @@
+"""
+An exercise that implements the "Acrobats" role-playing exercise.
+See    m3_acrobats   for details.
+
+This is the   DoublingAcrobat   class in that exercise.
+  -- A DoublingAcrobat can clap, twirl and count, like a BasicAcrobat,
+     but each time she claps or twirls, she does so TWICE as many
+     times as requested.  Her  count  function returns the number
+     of operations that she has done (thus twice the number requested).
+
+Authors: Claude Anderson, David Mutchler, Chandan Rupakheti, Matt
+         Boutell, Dave Fisher, and Noah Miller.  October 2013.
+"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+
+import m4_BasicAcrobat
+
+
+def main():
+    """ Calls the   TEST   functions in this module. """
+    test_DoublingAcrobat()
+
+
+def test_DoublingAcrobat():
+    """ Tests the   DoublingAcrobat   class. """
+    print()
+    print('--------------------------------------------------')
+    print('Testing the   DoublingAcrobat   class:')
+    print('--------------------------------------------------')
+
+    bilbo = DoublingAcrobat('bilbo baggins')
+    frodo = DoublingAcrobat('frodo baggins')
+    nobody = DoublingAcrobat()
+
+    bilbo.clap(3)
+    frodo.twirl(2)
+    bilbo.twirl(5)
+    print(bilbo.count(), frodo.count(), nobody.count())
+
+    frodo.twirl(1)
+    nobody.clap(2)
+    print(bilbo.count(), frodo.count(), nobody.count())
+    # TODO: Read the above and make sure you
+    #   that you understand the statements and how they test this class.
+
+
+class DoublingAcrobat(m4_BasicAcrobat.BasicAcrobat):
+    """
+    A DoublingAcrobat can clap and twirl, but does so TWICE as many
+    times as requested.  Her  count  function returns the number
+    of operations that she has done (thus twice the number requested).
+    """
+    def __init__(self, name='NoName'):
+        """
+        Sets this Acrobat's name to the given name
+        (or to the default 'NoName' if no name is given).
+        Also initializes other fields as needed.
+        """
+        # TODO: Implement and test this constructor.
+        super().__init__(name)
+
+    def clap(self, times_told_to_clap):
+        """
+        Claps TWICE the given number of times.
+        """
+        # TODO: Implement and test this method.  Use inheritance!
+        super().clap(times_told_to_clap * 2)
+
+    def twirl(self, times_told_to_twirl):
+        """
+        Twirls TWICE the given number of times.
+        """
+        # TODO: Implement and test this method.  Use inheritance!
+        super().twirl(times_told_to_twirl * 2)
+
+    # TODO: Write here (in a comment)
+    #       why there is NOT a   count  method defined in this class.
+    #
+
+#-----------------------------------------------------------------------
+# If this module is running at the top level (as opposed to being
+# imported by another module), then call the 'main' function.
+#-----------------------------------------------------------------------
+if __name__ == '__main__':
+    main()
